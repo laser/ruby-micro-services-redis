@@ -1,0 +1,27 @@
+<h1>UserController#index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%- @users.each do |user| -%>
+    <tr>
+      <td><a href="<%= edit_user_path(user) %>"><%= user.full_name %></a></td>
+      <td><%= user.email %></td>
+      <td><%= user.phone_number %></td>
+      <td><%= button_to "x", user, method: :delete, class: :delete %></td>
+    </tr>
+  <%- end -%>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4"><a href="<%= new_user_path %>">Create new user</a></td>
+    </tr>
+  </tfoot>
+</table>
