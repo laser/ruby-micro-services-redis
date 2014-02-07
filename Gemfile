@@ -15,12 +15,21 @@ gem 'rake'
 gem 'sinatra'
 gem 'activerecord'
 gem 'sinatra-activerecord'
-gem "barrister"
+gem 'barrister'
 
-gem 'sqlite3-ruby'
+group :development do
+  gem 'rerun'
+end
+
+group :test do
+  gem 'sqlite3-ruby'
+end
+
+group :development, :production do
+  gem 'pg'
+end
 
 group :development, :test do
-  gem "rerun"
   gem 'pry'
   gem 'pry-debugger'
 end
