@@ -1,1 +1,1 @@
-cd services/calculator; bundle exec rails s -p 3001
+cd services/user_service; bundle exec ruby ./app.rb -p 3001
