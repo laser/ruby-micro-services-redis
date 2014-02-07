@@ -7,8 +7,22 @@ gem 'pry-debugger'
 
 ##### UserService
 
+gem 'rake'
+gem 'sinatra'
+gem 'haml'
 gem 'activerecord'
-gem 'barrister'
-gem 'pry'
 gem 'sinatra-activerecord'
-gem 'sqlite3'
+gem "sinatra-reloader"
+gem "barrister"
+gem "rerun"
+
+gem 'sqlite3-ruby'
+
+group :development, :test do
+  gem 'pry'
+  gem 'pry-debugger'
+  gem 'rack-test'
+  gem 'rspec'
+  gem 'rspec-core'
+  gem "simplecov", ">=0.4.2"
+end

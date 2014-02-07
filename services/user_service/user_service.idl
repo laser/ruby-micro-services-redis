@@ -1,0 +1,14 @@
+struct UserProperties {
+  email        string
+  full_name    string
+  id           int [optional]
+  phone_number string
+}
+
+interface UserService {
+  create_user(properties UserProperties) UserProperties
+  delete_user_by_id(id int) bool
+  get_all_users() []UserProperties
+  get_user_by_id(id int) UserProperties
+  update_user_by_id(id int, properties UserProperties) UserProperties
+}
