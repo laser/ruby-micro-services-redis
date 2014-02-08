@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-UserInterface::Application.config.secret_key_base = '8cc4faa3835621c01d0b6a6e03926189e808bf96ff85e310480c7ee2c3ab4f16c8d30f4ff52a752d679ccdfc32816957ef2b0abed11eff2d7bf5798a598d7b8e'
+Basicsoa::Application.config.secret_key_base = '362f4409fac60ca113d47dad35080cd9b1c3804d60c2858b994dffcdad9dc4dc677a04d350d9eab55c7cc51228d93845836f912bcaf4c4480a4b0233f73e3692'

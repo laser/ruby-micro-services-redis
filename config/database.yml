@@ -1,12 +1,15 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: msme_basic
+  database: basicsoa_development
   pool: 5
-  username: postgres
-  password:
+  username: basicsoa
+  password: basicsoa
 
 test:
-  adapter: sqlite3
-  encoding: utf8
-  database: db/test.db
+  adapter: postgresql
+  encoding: unicode
+  database: basicsoa_test
+  pool: 5
+  username: basicsoa
+  password: basicsoa
