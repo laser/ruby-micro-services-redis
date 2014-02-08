@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-UserInterface::Application.load_tasks
+Basicsoa::Application.load_tasks

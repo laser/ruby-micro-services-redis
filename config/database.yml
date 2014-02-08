@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: basicsoa_development
+  pool: 5
+  username: basicsoa
+  password: basicsoa
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: basicsoa_test
+  pool: 5
+  username: basicsoa
+  password: basicsoa
