@@ -8,10 +8,9 @@ require 'pry'
 # App
 require './models.rb'
 
-ActiveRecord::Base.establish_connection(
-  :adapter => 'sqlite3',
-  :database =>  'user_service.sqlite3.db'
-)
+dbconfig = YAML.load(File.read(ENV['DB_YML_PATH']))
+RACK_ENV ||= ENV['RACK_ENV'] || 'development'
+ActiveRecord::Base.establish_connection dbconfig[RACK_ENV]
 
 class UserService
   USER_PROPERTIES = %w(id full_name email phone_number)
