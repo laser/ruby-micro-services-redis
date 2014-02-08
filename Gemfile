@@ -42,16 +42,7 @@ gem 'sinatra'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'barrister'
-
-group :development do
-  gem 'rerun'
-end
-
-group :development, :production do
-  gem 'pg'
-end
-
-group :development, :test do
-  gem 'pry'
-  gem 'pry-debugger'
-end
+gem 'rerun'
+gem 'pg'
+gem 'pry'
+gem 'pry-debugger'
