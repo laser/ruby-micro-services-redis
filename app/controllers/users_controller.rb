@@ -32,13 +32,6 @@ class UsersController < ApplicationController
     redirect_to action: 'index'
   end
 
-  def reset
-    UserService.client.get_all_users.map do |user_hash|
-      UserService.client.delete_user_by_id(user_hash["id"])
-    end
-    redirect_to action: 'index'
-  end
-
 private
   def user_params
     params.require(:user).permit(:full_name, :phone_number, :email)
