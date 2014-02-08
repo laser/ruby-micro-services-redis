@@ -8,9 +8,9 @@ require 'pry'
 # App
 require './models.rb'
 
-dbconfig = YAML.load(File.read(ENV['DB_YML_PATH']))
+dbconfig = YAML.load(ERB.new(File.read(ENV['DB_YML_PATH'])).result)
 RACK_ENV ||= ENV['RACK_ENV'] || 'development'
-ActiveRecord::Base.establish_connection dbconfig[RACK_ENV]
+ActiveRecord::Base.establish_connection(dbconfig[RACK_ENV])
 
 class UserService
   USER_PROPERTIES = %w(id full_name email phone_number)
