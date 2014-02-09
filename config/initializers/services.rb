@@ -38,14 +38,14 @@ class UserService
     custom_type = RETURN_MAPPINGS[operation]['type']
 
     if custom_type
-      self.cast operation, result, custom_type, RETURN_MAPPINGS[operation]['is_array']
+      self.cast operation, result, custom_type
     else
       result
     end
   end
 
-  def self.cast(operation, result, type_klass, is_array)
-    if is_array
+  def self.cast(operation, result, type_klass)
+    if RETURN_MAPPINGS[operation]['is_array']
       result.map { |hash| type_klass.new(hash) }
     else
       type_klass.new(result)
