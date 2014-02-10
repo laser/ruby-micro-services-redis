@@ -8,16 +8,22 @@ struct User extends UserProperties {
   id           int
 }
 
+// Error codes
+//
+// * 100 - Validation failure
+// * 101 - Record not found
+//
+
 interface UserService {
   // create_user: Create a user
   //
-  // * 1002 - Provided email already exists in the system
+  // * 100 - Provided email already exists in the system
   //
   create_user(properties UserProperties) User
 
   // delete_user_by_id: Delete a user
   //
-  // * 1003 - No user found with id
+  // * 101 - No user found with id
   //
   delete_user_by_id(id int) bool
 
@@ -27,13 +33,13 @@ interface UserService {
 
   // get_user_by_id: Gets a user by id
   //
-  // * 1003 - No user found with id
+  // * 101 - No user found with id
   //
   get_user_by_id(id int) User
 
   // get_user_by_id: Gets a user by id
   //
-  // * 1003 - No user found with id
+  // * 101 - No user found with id
   //
   update_user_by_id(id int, properties UserProperties) User
 }

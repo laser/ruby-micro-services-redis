@@ -240,24 +240,24 @@ body .il { color: #666666 }                     /* Literal.Number.Integer.Long *
               <div class="pilwrap">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              
+              <p>Error codes</p>
+<ul>
+<li>100 - Validation failure</li>
+<li>101 - Record not found</li>
+</ul>
             </td>
             <td class="code">
-              <div class="highlight"><pre><span class="k">interface</span> <span class="gs">UserService</span> {
-</pre></div>
+              
             </td>
           </tr><tr id="section-4">
             <td class="docs">
               <div class="pilwrap">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>create_user: Create a user</p>
-<ul>
-<li>1002 - Provided email already exists in the system</li>
-</ul>
+              
             </td>
             <td class="code">
-              <div class="highlight"><pre>    <span class="nf">create_user</span>(<span class="na">properties</span> <span class="kt">UserProperties</span>) <span class="kt">User</span>
+              <div class="highlight"><pre><span class="k">interface</span> <span class="gs">UserService</span> {
 </pre></div>
             </td>
           </tr><tr id="section-5">
@@ -265,13 +265,13 @@ body .il { color: #666666 }                     /* Literal.Number.Integer.Long *
               <div class="pilwrap">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>delete_user_by_id: Delete a user</p>
+              <p>create_user: Create a user</p>
 <ul>
-<li>1003 - No user found with id</li>
+<li>100 - Provided email already exists in the system</li>
 </ul>
             </td>
             <td class="code">
-              <div class="highlight"><pre>    <span class="nf">delete_user_by_id</span>(<span class="na">id</span> <span class="kt">int</span>) <span class="kt">bool</span>
+              <div class="highlight"><pre>    <span class="nf">create_user</span>(<span class="na">properties</span> <span class="kt">UserProperties</span>) <span class="kt">User</span>
 </pre></div>
             </td>
           </tr><tr id="section-6">
@@ -279,10 +279,13 @@ body .il { color: #666666 }                     /* Literal.Number.Integer.Long *
               <div class="pilwrap">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>get_all_users: Gets all users in the system</p>
+              <p>delete_user_by_id: Delete a user</p>
+<ul>
+<li>101 - No user found with id</li>
+</ul>
             </td>
             <td class="code">
-              <div class="highlight"><pre>    <span class="nf">get_all_users</span>() <span class="kt">[]User</span>
+              <div class="highlight"><pre>    <span class="nf">delete_user_by_id</span>(<span class="na">id</span> <span class="kt">int</span>) <span class="kt">bool</span>
 </pre></div>
             </td>
           </tr><tr id="section-7">
@@ -290,13 +293,10 @@ body .il { color: #666666 }                     /* Literal.Number.Integer.Long *
               <div class="pilwrap">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>get_user_by_id: Gets a user by id</p>
-<ul>
-<li>1003 - No user found with id</li>
-</ul>
+              <p>get_all_users: Gets all users in the system</p>
             </td>
             <td class="code">
-              <div class="highlight"><pre>    <span class="nf">get_user_by_id</span>(<span class="na">id</span> <span class="kt">int</span>) <span class="kt">User</span>
+              <div class="highlight"><pre>    <span class="nf">get_all_users</span>() <span class="kt">[]User</span>
 </pre></div>
             </td>
           </tr><tr id="section-8">
@@ -306,7 +306,21 @@ body .il { color: #666666 }                     /* Literal.Number.Integer.Long *
               </div>
               <p>get_user_by_id: Gets a user by id</p>
 <ul>
-<li>1003 - No user found with id</li>
+<li>101 - No user found with id</li>
+</ul>
+            </td>
+            <td class="code">
+              <div class="highlight"><pre>    <span class="nf">get_user_by_id</span>(<span class="na">id</span> <span class="kt">int</span>) <span class="kt">User</span>
+</pre></div>
+            </td>
+          </tr><tr id="section-9">
+            <td class="docs">
+              <div class="pilwrap">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>get_user_by_id: Gets a user by id</p>
+<ul>
+<li>101 - No user found with id</li>
 </ul>
             </td>
             <td class="code">
