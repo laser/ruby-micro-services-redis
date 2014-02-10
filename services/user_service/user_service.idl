@@ -1,14 +1,45 @@
-struct User {
+struct UserProperties {
   email        string
   full_name    string
-  id           int [optional]
   phone_number string
 }
 
+struct User extends UserProperties {
+  id           int
+}
+
+// Error codes
+//
+// * 100 - Validation failure
+// * 101 - Record not found
+//
+
 interface UserService {
-  create_user(properties User) User
+  // create_user: Create a user
+  //
+  // * 100 - Provided email already exists in the system
+  //
+  create_user(properties UserProperties) User
+
+  // delete_user_by_id: Delete a user
+  //
+  // * 101 - No user found with id
+  //
   delete_user_by_id(id int) bool
+
+  // get_all_users: Gets all users in the system
+  //
   get_all_users() []User
+
+  // get_user_by_id: Gets a user by id
+  //
+  // * 101 - No user found with id
+  //
   get_user_by_id(id int) User
-  update_user_by_id(id int, properties User) User
+
+  // get_user_by_id: Gets a user by id
+  //
+  // * 101 - No user found with id
+  //
+  update_user_by_id(id int, properties UserProperties) User
 }

@@ -34,11 +34,10 @@ class UserService
 
   def self.call(operation, *args)
     result = self.client.send operation, *args
-
     custom_type = RETURN_MAPPINGS[operation]['type']
 
     if custom_type
-      self.cast operation, result, custom_type
+      self.cast(operation, result, custom_type)
     else
       result
     end
