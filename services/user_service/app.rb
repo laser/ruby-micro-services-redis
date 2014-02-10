@@ -14,8 +14,8 @@ RACK_ENV ||= ENV['RACK_ENV'] || 'development'
 ActiveRecord::Base.establish_connection(db_config[RACK_ENV])
 
 # establish connection to Redis
-redis_config = YAML.load(ERB.new(File.read('../../config/redis.yml')).result)
-client = Redis.connect url: redis_config['user_service']['database_url']
+redis_config = YAML.load(ERB.new(File.read('../../config/redis.yml')).result)['user_service']
+client = Redis.connect url: ENV['OPENREDIS_URL'] || redis_config['database_url']
 
 # initialize service
 contract = Barrister::contract_from_file('./user_service.json')
@@ -24,7 +24,7 @@ server.add_handler('UserService', UserService.new)
 
 while true
   # pop last element off our list in a blocking fashion
-  channel, request = client.brpop(redis_config['user_service']['list_name'])
+  channel, request = client.brpop(redis_config['list_name'])
 
   parsed = JSON.parse request
 
