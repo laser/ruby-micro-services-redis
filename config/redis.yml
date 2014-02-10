@@ -1,0 +1,3 @@
+user_service:
+  list_name: 'user_service'
+  database_url: 'redis://localhost:6379'
