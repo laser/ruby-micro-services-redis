@@ -1,5 +1,14 @@
 class UserService
 
+  class BarristerRpcResult
+    attr_reader :result, :error
+
+    def initialize(result, error)
+      @result = result
+      @error = error
+    end
+  end
+
   RETURN_MAPPINGS = {
     'create_user' => {
       'is_array' => false,
@@ -33,14 +42,17 @@ class UserService
   end
 
   def self.call(operation, *args)
-    result = self.client.send operation, *args
+    begin
+      result = self.client.send operation, *args
+      custom_type = RETURN_MAPPINGS[operation]['type']
 
-    custom_type = RETURN_MAPPINGS[operation]['type']
-
-    if custom_type
-      self.cast operation, result, custom_type
-    else
-      result
+      if custom_type
+        BarristerRpcResult.new(self.cast(operation, result, custom_type), nil)
+      else
+        BarristerRpcResult.new result, nil
+      end
+    rescue Barrister::RpcException => e
+      BarristerRpcResult.new nil, e
     end
   end
 
