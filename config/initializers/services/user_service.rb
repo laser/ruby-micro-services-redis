@@ -44,11 +44,11 @@ class UserService
     end
   end
 
-  def self.cast(operation, result, type_klass)
+  def self.cast(operation, result, klass)
     if RETURN_MAPPINGS[operation]['is_array']
-      result.map { |hash| type_klass.new(hash) }
+      result.map { |hash| klass.new(hash) }
     else
-      type_klass.new(result)
+      klass.new(result)
     end
   end
 end
