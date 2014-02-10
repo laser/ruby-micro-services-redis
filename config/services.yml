@@ -1,0 +1,2 @@
+user_service:
+  uri: 'http://localhost:3001/user_service'

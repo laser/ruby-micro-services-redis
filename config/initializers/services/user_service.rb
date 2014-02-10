@@ -24,7 +24,8 @@ class UserService
 
   def self.client
     proxy_service = lambda do
-      trans  = Barrister::HttpTransport.new("http://localhost:3001/user_service")
+      config = YAML::load_file(File.join(Rails.root, 'config', 'services.yml'))['user_service']
+      trans  = Barrister::HttpTransport.new(config['uri'])
       client = Barrister::Client.new(trans)
       client.UserService
     end
