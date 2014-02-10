@@ -14,13 +14,10 @@ end
 
 ##### UserService
 
-gem 'rake'
-gem 'sinatra'
 gem 'activerecord'
-gem 'sinatra-activerecord'
 gem 'barrister'
-gem 'rerun'
 gem 'pg'
 gem 'pry'
 gem 'pry-debugger'
 gem 'redis'
+gem 'rerun'

@@ -1,10 +1,8 @@
-require 'sinatra'
-require 'sinatra/activerecord'
-require 'sinatra/base'
 require 'active_record'
 require 'barrister'
 require 'pry'
 require 'redis'
+require 'erb'
 
 # App
 require './models.rb'
