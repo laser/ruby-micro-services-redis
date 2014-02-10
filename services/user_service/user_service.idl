@@ -1,4 +1,4 @@
-struct UserProperties {
+struct User {
   email        string
   full_name    string
   id           int [optional]
@@ -6,9 +6,9 @@ struct UserProperties {
 }
 
 interface UserService {
-  create_user(properties UserProperties) UserProperties
+  create_user(properties User) User
   delete_user_by_id(id int) bool
-  get_all_users() []UserProperties
-  get_user_by_id(id int) UserProperties
-  update_user_by_id(id int, properties UserProperties) UserProperties
+  get_all_users() []User
+  get_user_by_id(id int) User
+  update_user_by_id(id int, properties User) User
 }
