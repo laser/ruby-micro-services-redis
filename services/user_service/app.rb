@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'active_record'
 require 'barrister'
 require 'pry'
+require 'redis'
 
 # App
 require './models.rb'
@@ -17,11 +18,20 @@ contract = Barrister::contract_from_file('./user_service.json')
 server   = Barrister::Server.new(contract)
 server.add_handler('UserService', UserService.new)
 
-post '/user_service' do
-  request.body.rewind
-  resp = server.handle_json(request.body.read)
+list_name = 'user_service'
+client = Redis.new
 
-  status 200
-  headers 'Content-Type' => 'application/json'
-  resp
+while true
+  # pop last element off our list in a blocking fashion
+  channel, request = client.brpop(list_name)
+
+  parsed = JSON.parse request
+
+  # reverse the message we were sent
+  response = {
+    'message' => server.handle(parsed['message'])
+  }
+
+  # 'respond' by inserting our reply at the head of a 'reply'-list
+  client.lpush(parsed['reply_to'], JSON.generate(response))
 end

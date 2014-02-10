@@ -1,3 +1,27 @@
+class RedisTransport
+
+  def initialize(list_name)
+    @list_name = list_name
+    @client = Redis.new
+  end
+
+  def request(message)
+    # reply-to tells the server where we'll be listening
+    request = {
+      'reply_to' => 'reply-' + SecureRandom.uuid,
+      'message'  => message
+    }
+
+    # insert our request at the head of the list
+    @client.lpush(@list_name, JSON.generate(request))
+
+    # pop last element off our list in a blocking fashion
+    channel, response = @client.brpop(request['reply_to'], timeout=30)
+
+    JSON.parse(response)['message']
+  end
+end
+
 class UserService
 
   RETURN_MAPPINGS = {
@@ -25,7 +49,7 @@ class UserService
   def self.client
     proxy_service = lambda do
       config = YAML::load_file(File.join(Rails.root, 'config', 'services.yml'))['user_service']
-      trans  = Barrister::HttpTransport.new(config['uri'])
+      trans  = RedisTransport.new('user_service')
       client = Barrister::Client.new(trans)
       client.UserService
     end
