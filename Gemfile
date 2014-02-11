@@ -6,6 +6,7 @@ gem 'pg'
 gem 'barrister'
 gem 'active_attr'
 gem 'redis'
+gem 'foreman'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
