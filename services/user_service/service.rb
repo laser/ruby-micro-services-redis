@@ -1,5 +1,15 @@
+require 'active_record'
+require 'barrister'
+require 'erb'
+
 class UserService
   USER_ATTRIBUTES = %w(id full_name email phone_number)
+
+  def initialize
+    # establish connection to main db
+    db_config = YAML.load(ERB.new(File.read('../../config/database.yml')).result)
+    ActiveRecord::Base.establish_connection db_config[ENV['RACK_ENV'] || 'development']
+  end
 
   def get_all_users()
     guard { User.all.map &method(:to_serializable) }
