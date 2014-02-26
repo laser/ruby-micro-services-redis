@@ -18,7 +18,6 @@ end
 ##### UserService
 
 gem 'activerecord'
-gem 'barrister'
 gem 'barrister-redis'
 gem 'pg'
 gem 'pry'

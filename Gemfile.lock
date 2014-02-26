@@ -35,7 +35,7 @@ GEM
     barrister-rails (0.0.1)
       active_attr (~> 0)
       barrister (~> 0)
-    barrister-redis (0.0.1)
+    barrister-redis (0.0.2)
       barrister (~> 0)
       redis (~> 3.0)
     builder (3.1.4)
