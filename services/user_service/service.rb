@@ -1,6 +1,7 @@
 require 'active_record'
 require 'barrister'
 require 'erb'
+require './models.rb'
 
 class UserService
   USER_ATTRIBUTES = %w(id full_name email phone_number)
