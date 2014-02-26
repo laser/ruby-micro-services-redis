@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: basicsoa_development
+  database: basicsoa_redis_development
   pool: 5
   username: postgres
   password:
@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: basicsoa_test
+  database: basicsoa_redis_development
   pool: 5
   username: postgres
   password:
