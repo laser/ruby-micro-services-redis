@@ -38,7 +38,7 @@ GEM
       active_attr (~> 0)
       barrister (~> 0)
       barrister-intraprocess (~> 0)
-    barrister-redis (0.0.3)
+    barrister-redis (0.0.4)
       barrister (~> 0)
       redis (~> 3.0)
     builder (3.1.4)
