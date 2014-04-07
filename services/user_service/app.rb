@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'barrister-redis'
 require './service.rb'
 
